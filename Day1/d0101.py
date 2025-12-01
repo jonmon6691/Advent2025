@@ -1,5 +1,4 @@
-with open("Day1/input1.txt", 'r') as file:
-    lines = file.readlines()
+def main(lines):
     acc = 50
     password = 0
     for line in lines:
@@ -15,5 +14,9 @@ with open("Day1/input1.txt", 'r') as file:
         if acc == 0:
             password += 1
 
-    print("Final accumulator value:", acc)
-    print("Number of times accumulator returned to zero:", password)
+    return password
+
+if __name__ == "__main__":
+    with open("Day1/input.txt", 'r') as file:
+        lines = file.readlines()
+        print(f"Password = {main(lines)}")
