@@ -7,8 +7,7 @@
             "request": "launch",
             "module": "pytest",
             "args": [
-                "${file}",
-                "-v"
+                "-s"
             ],
             "console": "integratedTerminal",
             "justMyCode": false,

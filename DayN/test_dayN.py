@@ -1,6 +1,6 @@
 
 dayN_input = """
-"""
+""".splitlines()
 
 def test_dayN_part1():
     import dNN01
