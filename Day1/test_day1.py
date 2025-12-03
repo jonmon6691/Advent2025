@@ -1,5 +1,5 @@
 
-day1_test_data = """L68
+day1_test_input = """L68
 L30
 R48
 L5
@@ -8,18 +8,12 @@ L55
 L1
 L99
 R14
-L82"""
+L82""".splitlines()
 
 def test_part1():
     import d0101
-    lines = day1_test_data.splitlines()
-    password = d0101.main(lines)
-    assert password == 3
-
-day2_test_data = day1_test_data
+    assert d0101.main(day1_test_input) == 3
 
 def test_part2a():
     import d0102
-    lines = day2_test_data.splitlines()
-    password = d0102.main(lines)
-    assert password == 6
+    assert d0102.main(day1_test_input) == 6
