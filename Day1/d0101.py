@@ -17,6 +17,7 @@ def main(lines):
     return password
 
 if __name__ == "__main__":
-    with open("Day1/input.txt", 'r') as file:
-        lines = file.readlines()
-        print(f"Password = {main(lines)}")
+    import sys
+    with open(sys.argv[1], 'r') as f:
+        lines = f.readlines()
+    print(f"Password = {main(lines)}")

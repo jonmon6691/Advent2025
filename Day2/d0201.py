@@ -16,6 +16,7 @@ def main(ranges_str):
     return acc
 
 if __name__ == "__main__":
-    with open('input.txt') as f:
+    import sys
+    with open(sys.argv[1]) as f:
         lines = f.readlines()
     print(f"Answer: {main(lines.pop())}")
