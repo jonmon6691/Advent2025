@@ -6,5 +6,4 @@ def main(input_lines):
 if __name__ == "__main__":
     import sys
     with open(sys.argv[1]) as f:
-        lines = f.read().splitlines()
-    print(f"Answer: {main(lines)}")
+        print(f"Answer: {main(f.read().splitlines())}")
