@@ -68,6 +68,9 @@ def main(argv: list[str]) -> None:
 	except Exception:
 		fatal("first argument must be an integer day number")
 
+	if d < 1 or d > 12:
+		fatal("day number must be between 1 and 12")
+
 	tpl = argv[2] if len(argv) >= 3 else "DayN"
 	make_day(d, tpl)
 
