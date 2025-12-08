@@ -26,4 +26,4 @@ def test_day8_part1():
 
 def test_day8_part2():
     import d0802
-    assert d0802.main(day8_test_input) == 0
+    assert d0802.main(day8_test_input) == 25272

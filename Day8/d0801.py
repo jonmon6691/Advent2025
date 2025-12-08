@@ -7,27 +7,21 @@ class Point:
         self.y = y
         self.z = z
 
-    def euclidean_distance(self, other):
-        return ((self.x - other.x) ** 2 + (self.y - other.y) ** 2 + (self.z - other.z) ** 2) ** 0.5
+    def euclidean_distance_squared(self, other):
+        return (self.x - other.x) ** 2 + (self.y - other.y) ** 2 + (self.z - other.z) ** 2
 
-    def __repr__(self):
-        return f"({self.x}, {self.y}, {self.z})"
-    
 def main(input_lines):
     points = [Point(*map(int, line.split(','))) for line in input_lines]
-    pair_distances = [(a.euclidean_distance(b), {a,b}) for a, b in combinations(points, 2)]
-    pds = sorted(pair_distances, key=lambda x: x[0])
-
-    if len(input_lines) <= 20:
-        # Test input requires only top 10 closest pairs for some reason
-        pds = pds[:10]
-    else:
-        # Limit to top 1000 closest pairs for the real input
-        pds = pds[:1000]
-
+    pair_distances = [(a.euclidean_distance_squared(b), {a,b}) for a, b in combinations(points, 2)]
+    pair_distances.sort(key=lambda x: x[0])
+    
+    # Example input uses a smaller set of points for some reason
+    limit = 1000 if len(input_lines) > 20 else 10
+    
     clusters = []
-    for _, pair in pds:
+    for _, pair in pair_distances[:limit]:
         found_clusters = [c for c in clusters if not c.isdisjoint(pair)]
+
         if not found_clusters:
             clusters.append(set(pair))
         elif len(found_clusters) == 1:
@@ -36,6 +30,7 @@ def main(input_lines):
             merged_cluster = set.union(*found_clusters, pair)
             clusters = [c for c in clusters if c.isdisjoint(pair)]
             clusters.append(merged_cluster)
+
     a = sorted([len(c) for c in clusters])
     return prod(a[-3:])
 
