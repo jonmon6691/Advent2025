@@ -8,15 +8,19 @@ class InfiniteList(list):
             return self.default_value
         return super().__getitem__(idx)
 
+
 def new_infinite_grid(grid, default_value):
-    return InfiniteList([InfiniteList(row, default_value=default_value) for row in grid], default_value=InfiniteList(default_value=default_value))
+    inf_cols = InfiniteList(default_value=default_value)
+    inf_rows = [InfiniteList(row, default_value=default_value) for row in grid]
+    return InfiniteList(inf_rows, default_value=inf_cols)
+
 
 def main(input_lines):
     answer = 0
     grid = [[0 if cell == '.' else 1 for cell in line] for line in input_lines]
     grid = new_infinite_grid(grid, default_value=0)
 
-    while True: # Break when no additional rolls can be removed
+    while True:  # Break when no additional rolls can be removed
         round_answer = 0
         new_grid = new_infinite_grid(grid, default_value=0)
         for i, row in enumerate(grid):
@@ -40,6 +44,7 @@ def main(input_lines):
         if round_answer == 0:
             break
     return answer
+
 
 if __name__ == "__main__":
     import sys

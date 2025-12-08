@@ -8,12 +8,14 @@ def main(input_lines):
         answer += bignum
     return answer
 
+
 def recurse_me_baby(js, len):
     if len == 1:
         return [max(js)]
-    
+
     max_digit = max(js[:1-len])
     return [max_digit] + recurse_me_baby(js[js.index(max_digit)+1:], len - 1)
+
 
 if __name__ == "__main__":
     import sys

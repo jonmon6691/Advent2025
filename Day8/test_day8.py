@@ -20,9 +20,11 @@ day8_test_input = """162,817,812
 984,92,344
 425,690,689""".splitlines()
 
+
 def test_day8_part1():
     import d0801
     assert d0801.main(day8_test_input) == 40
+
 
 def test_day8_part2():
     import d0802

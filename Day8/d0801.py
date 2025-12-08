@@ -1,6 +1,7 @@
 from itertools import combinations
 from math import prod
 
+
 class Point:
     def __init__(self, x, y, z=0):
         self.x = x
@@ -8,16 +9,20 @@ class Point:
         self.z = z
 
     def euclidean_distance_squared(self, other):
-        return (self.x - other.x) ** 2 + (self.y - other.y) ** 2 + (self.z - other.z) ** 2
+        return (self.x - other.x) ** 2 + \
+            (self.y - other.y) ** 2 + \
+            (self.z - other.z) ** 2
+
 
 def main(input_lines):
     points = [Point(*map(int, line.split(','))) for line in input_lines]
-    pair_distances = [(a.euclidean_distance_squared(b), {a,b}) for a, b in combinations(points, 2)]
+    pair_distances = [(a.euclidean_distance_squared(b), {a, b})
+                      for a, b in combinations(points, 2)]
     pair_distances.sort(key=lambda x: x[0])
-    
+
     # Example input uses a smaller set of points for some reason
     limit = 1000 if len(input_lines) > 20 else 10
-    
+
     clusters = []
     for _, pair in pair_distances[:limit]:
         found_clusters = [c for c in clusters if not c.isdisjoint(pair)]
@@ -33,6 +38,7 @@ def main(input_lines):
 
     a = sorted([len(c) for c in clusters])
     return prod(a[-3:])
+
 
 if __name__ == "__main__":
     import sys

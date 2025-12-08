@@ -11,9 +11,11 @@ day5_test_input = """3-5
 17
 32""".splitlines()
 
+
 def test_day5_part1():
     import d0501
     assert d0501.main(day5_test_input) == 3
+
 
 def test_day5_part2():
     import d0502

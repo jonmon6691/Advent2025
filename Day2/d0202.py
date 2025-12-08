@@ -1,6 +1,7 @@
 # Doing it the
 import re#gexy way
 
+
 def main(ranges_str):
     acc = 0
     for range_str in ranges_str.split(','):
@@ -9,6 +10,7 @@ def main(ranges_str):
             if re.match(r'^(\d+)\1+$', str(i)):
                 acc += i
     return acc
+
 
 if __name__ == "__main__":
     import sys

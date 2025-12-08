@@ -8,6 +8,7 @@ def main(input_lines):
         answer += first_digit * 10 + second_digit
     return answer
 
+
 if __name__ == "__main__":
     import sys
     with open(sys.argv[1]) as f:

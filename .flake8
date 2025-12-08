@@ -1,0 +1,9 @@
+[flake8]
+per-file-ignores =
+    ; Stylistic choice
+    Day2\d0201.py:E261,E262
+    Day2\d0202.py:E261,E262
+    ; Test input is loooong
+    Day2\test_day2.py:E501
+    ; Test input has significant trailing spaces
+    Day6\test_day6.py:W291

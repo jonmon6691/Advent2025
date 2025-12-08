@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def main(input_lines):
     beam_ids = defaultdict(int)
     for line in input_lines:
@@ -15,6 +16,7 @@ def main(input_lines):
                     next_row[i + 1] += beam_ids[i]
         beam_ids = next_row
     return sum(beam_ids.values())
+
 
 if __name__ == "__main__":
     import sys

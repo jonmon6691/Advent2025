@@ -19,6 +19,7 @@ def main(input_lines):
 
     return answer
 
+
 if __name__ == "__main__":
     import sys
     with open(sys.argv[1]) as f:

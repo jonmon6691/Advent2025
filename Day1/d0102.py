@@ -4,7 +4,7 @@ def main(lines):
     for line in lines:
         direction = line[0]
         number = int(line[1:].strip())
-        
+
         password += number // 100
         number %= 100
 
@@ -15,6 +15,7 @@ def main(lines):
                 password += 1
 
     return password
+
 
 if __name__ == "__main__":
     import sys

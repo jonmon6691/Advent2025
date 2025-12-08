@@ -8,8 +8,12 @@ class InfiniteList(list):
             return self.default_value
         return super().__getitem__(idx)
 
+
 def new_infinite_grid(grid, default_value):
-    return InfiniteList([InfiniteList(row, default_value=default_value) for row in grid], default_value=InfiniteList(default_value=default_value))
+    inf_cols = InfiniteList(default_value=default_value)
+    inf_rows = [InfiniteList(row, default_value=default_value) for row in grid]
+    return InfiniteList(inf_rows, default_value=inf_cols)
+
 
 def main(input_lines):
     answer = 0
@@ -32,6 +36,7 @@ def main(input_lines):
             if rolls < 4:
                 answer += 1
     return answer
+
 
 if __name__ == "__main__":
     import sys

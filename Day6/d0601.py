@@ -1,4 +1,6 @@
 from math import prod
+
+
 def main(input_lines):
     rows = []
     answer = 0
@@ -7,10 +9,15 @@ def main(input_lines):
     for equation in zip(*rows):
         nums, op = equation[:-1], equation[-1]
         nums = list(map(int, nums))
-        if op == "+": answer += sum(nums)
-        elif op == "*": answer += prod(nums)
-        else: raise ValueError(f"Unknown operator: {op}")
+
+        if op == "+":
+            answer += sum(nums)
+        elif op == "*":
+            answer += prod(nums)
+        else:
+            raise ValueError(f"Unknown operator: {op}")
     return answer
+
 
 if __name__ == "__main__":
     import sys

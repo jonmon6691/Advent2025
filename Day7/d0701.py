@@ -15,6 +15,7 @@ def main(input_lines):
         beam_ids = next_row
     return answer
 
+
 if __name__ == "__main__":
     import sys
     with open(sys.argv[1]) as f:

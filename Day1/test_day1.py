@@ -10,9 +10,11 @@ L99
 R14
 L82""".splitlines()
 
+
 def test_part1():
     import d0101
     assert d0101.main(day1_test_input) == 3
+
 
 def test_part2a():
     import d0102

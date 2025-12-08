@@ -13,8 +13,8 @@ def main(lines):
         acc %= 100
         if acc == 0:
             password += 1
-
     return password
+
 
 if __name__ == "__main__":
     import sys

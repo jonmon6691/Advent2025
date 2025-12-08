@@ -16,9 +16,11 @@ day7_test_input = """.......S.......
 .^.^.^.^.^...^.
 ...............""".splitlines()
 
+
 def test_day7_part1():
     import d0701
     assert d0701.main(day7_test_input) == 21
+
 
 def test_day7_part2():
     import d0702

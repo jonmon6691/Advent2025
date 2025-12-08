@@ -8,10 +8,11 @@ class Range:
 
     def merge(self, other):
         return Range(min(self.start, other.start), max(self.end, other.end))
-    
+
     def length(self):
         return self.end - self.start + 1
-    
+
+
 def main(input_lines):
     ranges = []
     for line in input_lines:
@@ -29,6 +30,7 @@ def main(input_lines):
             merged_ranges[-1] = merged_ranges[-1].merge(r)
 
     return sum(r.length() for r in merged_ranges)
+
 
 if __name__ == "__main__":
     import sys
